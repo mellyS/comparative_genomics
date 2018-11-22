@@ -1,0 +1,33 @@
+---
+title: "Comparative Genomics - Project - Families"
+author: "Melissa Saichi & Sandrine Fartek"
+output: html_document
+---
+
+```{r}
+library(plyr)
+```
+
+
+# DATA
+
+```{r}
+SL = read.table("SL_pairs_blast_filtered_MERGEBLAST.tabular", header = T)
+MCL = read.table("MCL_pairs_blast_filtered_MERGEBLAST.tabular", header = T)
+```
+
+
+```{r}
+# SL
+length(unique(SL$geneName))
+length(unique(SL$family))
+sizeSL = count(SL, "family")
+hist(sizeSL$freq)
+
+# MCL
+length(unique(MCL$geneName))
+length(unique(MCL$family))
+sizeMCL = count(MCL, "family")
+hist(sizeMCL$freq)
+```
+
